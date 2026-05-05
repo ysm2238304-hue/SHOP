@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 終極現貨搶購｜產地直送團購狂歡</title>
+    
+    <meta name="description" content="錯過不再！竹山小農芋頭、東東芋圓、純濃薑母汁，產地直送最低價。">
+    
+    <!-- 引入字體 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'Noto Sans TC', 'sans-serif'] },
+                    colors: { primary: '#007AFF', dark: '#1C1C1E', light: '#F2F2F7', danger: '#FF3B30', brand: '#D97706' }
+                }
+            }
+        }
+    </script>
+    
+    <!-- AOS 動畫庫 & Lucide Icons -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        .text-gradient { background: linear-gradient(135deg, #FF3B30 0%, #FF9500 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .bg-gradient { background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%); }
+        .bg-danger-gradient { background: linear-gradient(135deg, #FF3B30 0%, #FF2D55 100%); }
+        ::-webkit-scrollbar { display: none; }
+        body { -ms-overflow-style: none; scrollbar-width: none; background-color: #F2F2F7; }
+        
+        /* 圖片容器：完美 4:3 比例與懸停放大特效 */
+        .product-img-wrapper { 
+            position: relative;
+            overflow: hidden; 
+            aspect-ratio: 4 / 3; 
+            background-color: #E5E5EA;
+        }
+        .product-img-wrapper img { 
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease; 
+        }
+        .product-card:hover .product-img-wrapper img { 
+            transform: scale(1.08); 
+        }
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .product-card-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card-desc {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased font-sans pb-36">
+
+    <!-- 跑馬燈 -->
+    <div class="bg-danger-gradient text-white text-xs font-bold text-center py-2.5 px-4 tracking-widest z-50 relative shadow-md">
+        🔥 2026 年度最終檔！小農手工產量有限，隨時斷貨請手刀搶購 🔥
+    </div>
+
+    <!-- ==========================================
+         1. 震撼首屏與倒數計時
+         ========================================== -->
+    <header class="relative bg-white pt-10 pb-16 px-6 lg:pt-16 lg:pb-24 overflow-hidden rounded-b-[40px] shadow-sm">
+        <div class="max-w-4xl mx-auto text-center relative z-10" data-aos="zoom-in" data-aos-duration="1000">
+            <span class="inline-block py-1.5 px-4 rounded-full bg-orange-100 text-brand text-sm font-black mb-5 tracking-widest border border-orange-200">產地直送 x 名店美食</span>
+            
+            <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight text-gray-900 tracking-tight">
+                口碑爆棚！嚴選在地好物<br>
+                <span class="text-gradient">倒數結束，即刻絕版</span>
+            </h1>
+            <p class="text-lg text-gray-500 mb-10 font-bold max-w-2xl mx-auto leading-relaxed">
+                從竹山小農芋頭到大坑東東芋圓，我們親自把關。不玩虛假折扣，直接給你最實在的產地團購價！
+            </p>
+            
+            <!-- 倒數計時器 -->
+            <div class="flex justify-center gap-3 md:gap-5 mb-8">
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-dark rounded-2xl shadow-xl flex items-center justify-center text-3xl md:text-4xl font-black text-white" id="cd-days">00</div>
+                    <span class="text-sm font-bold text-gray-500 mt-2">天</span>
+                </div>
+                <div class="text-3xl font-black text-gray-300 mt-4 md:mt-5">:</div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-dark rounded-2xl shadow-xl flex items-center justify-center text-3xl md:text-4xl font-black text-white" id="cd-hours">00</div>
+                    <span class="text-sm font-bold text-gray-500 mt-2">時</span>
+                </div>
+                <div class="text-3xl font-black text-gray-300 mt-4 md:mt-5">:</div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-dark rounded-2xl shadow-xl flex items-center justify-center text-3xl md:text-4xl font-black text-white" id="cd-mins">00</div>
+                    <span class="text-sm font-bold text-gray-500 mt-2">分</span>
+                </div>
+                <div class="text-3xl font-black text-gray-300 mt-4 md:mt-5">:</div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-red-500 rounded-2xl shadow-xl flex items-center justify-center text-3xl md:text-4xl font-black text-white animate-pulse" id="cd-secs">00</div>
+                    <span class="text-sm font-bold text-danger mt-2">秒</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         2. 全品項圖文展示牆 (對應您上傳的真實圖片)
+         ========================================== -->
+    <section class="py-16 px-6 max-w-7xl mx-auto">
+        <div class="flex items-center justify-center gap-3 mb-12" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-black text-gray-900">🔥 必搶爆款圖文清單</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+
+            <!-- 品項 1：東東芋圓 -->
+            <!-- ⚠️ 請將圖片檔名改為 img-dongdong.jpg -->
+            <div class="bg-white rounded-[32px] p-4 shadow-lg border border-gray-100 product-card relative" data-aos="fade-up" data-aos-delay="100">
+                <div class="absolute top-8 left-8 bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-black z-10 shadow-md">新包裝上市</div>
+                <div class="product-img-wrapper rounded-2xl mb-5 w-full">
+                    <img src="./img-dongdong.jpg" alt="東東芋圓" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1582315054817-4ce137fb5714?auto=format&fit=crop&w=600&q=80'">
+                </div>
+                <div class="px-2 pb-2 product-card-content">
+                    <h3 class="text-xl font-black text-gray-900 mb-2">大坑正宗 東東芋圓</h3>
+                    <p class="text-gray-500 text-sm font-bold leading-relaxed mb-6 product-card-desc">
+                        原廠直送 400g 新包裝！不含防腐劑與香精。待水滾浮起即可享用，Ｑ彈有勁，冰箱必囤甜點神物。
+                    </p>
+                    <a href="https://liff.line.me/2009830086-be7xTyPC" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-black py-3.5 rounded-xl flex justify-center items-center transition mt-auto">
+                        <i data-lucide="shopping-cart" class="w-4 h-4 mr-2"></i> 選購數量
+                    </a>
+                </div>
+            </div>
+
+            <!-- 品項 2：竹山小農芋頭 -->
+            <!-- ⚠️ 請將圖片檔名改為 img-taro.jpg -->
+            <div class="bg-white rounded-[32px] p-4 shadow-lg border border-gray-100 product-card relative" data-aos="fade-up" data-aos-delay="200">
+                <div class="absolute top-8 left-8 bg-brand text-white px-3 py-1 rounded-full text-xs font-black z-10 shadow-md">小農直送</div>
+                <div class="product-img-wrapper rounded-2xl mb-5 w-full">
+                    <img src="./img-taro.jpg" alt="竹山小農芋頭" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1622396090074-ab220ee50c53?auto=format&fit=crop&w=600&q=80'">
+                </div>
+                <div class="px-2 pb-2 product-card-content">
+                    <h3 class="text-xl font-black text-gray-900 mb-2">竹山小農 鮮切芋頭</h3>
+                    <p class="text-gray-500 text-sm font-bold leading-relaxed mb-6 product-card-desc">
+                        保證整顆新鮮芋頭純手工削皮、切塊！絕非邊角料。口感綿密桑桑，煮甜湯、燉排骨最佳主角。
+                    </p>
+                    <a href="https://liff.line.me/2009830086-be7xTyPC" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-black py-3.5 rounded-xl flex justify-center items-center transition mt-auto">
+                        <i data-lucide="shopping-cart" class="w-4 h-4 mr-2"></i> 選購數量
+                    </a>
+                </div>
+            </div>
+
+            <!-- 品項 3：黃金樹薯 -->
+            <!-- ⚠️ 請將圖片檔名改為 img-cassava.jpg -->
+            <div class="bg-white rounded-[32px] p-4 shadow-lg border border-gray-100 product-card relative" data-aos="fade-up" data-aos-delay="300">
+                <div class="absolute top-8 left-8 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-black z-10 shadow-md">新鮮上市</div>
+                <div class="product-img-wrapper rounded-2xl mb-5 w-full">
+                    <img src="./img-cassava.jpg" alt="黃金樹薯" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1596482559570-0775d78a9c2f?auto=format&fit=crop&w=600&q=80'">
+                </div>
+                <div class="px-2 pb-2 product-card-content">
+                    <h3 class="text-xl font-black text-gray-900 mb-2">美味 黃金樹薯</h3>
+                    <p class="text-gray-500 text-sm font-bold leading-relaxed mb-6 product-card-desc">
+                        新鮮採收強勢回歸！金黃色澤誘人，加點煉乳當甜點、或是燉湯入菜，口感軟糯甘甜，老少咸宜。
+                    </p>
+                    <a href="https://liff.line.me/2009830086-be7xTyPC" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-black py-3.5 rounded-xl flex justify-center items-center transition mt-auto">
+                        <i data-lucide="shopping-cart" class="w-4 h-4 mr-2"></i> 選購數量
+                    </a>
+                </div>
+            </div>
+
+            <!-- 品項 4：薑母原汁 -->
+            <!-- ⚠️ 請將圖片檔名改為 img-ginger.jpg -->
+            <div class="bg-white rounded-[32px] p-4 shadow-lg border border-gray-100 product-card relative" data-aos="fade-up" data-aos-delay="100">
+                <div class="absolute top-8 left-8 bg-orange-600 text-white px-3 py-1 rounded-full text-xs font-black z-10 shadow-md">純度100%</div>
+                <div class="product-img-wrapper rounded-2xl mb-5 w-full">
+                    <img src="./img-ginger.jpg" alt="薑母原汁" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1615486171448-4fb3242ea9ce?auto=format&fit=crop&w=600&q=80'">
+                </div>
+                <div class="px-2 pb-2 product-card-content">
+                    <h3 class="text-xl font-black text-gray-900 mb-2">特濃 薑母原汁</h3>
+                    <p class="text-gray-500 text-sm font-bold leading-relaxed mb-6 product-card-desc">
+                        滿滿一整瓶的真材實料！嚴選老薑冷壓榨汁，絕無加水稀釋。天氣轉涼，煮湯圓、做薑母鴨必備神器。
+                    </p>
+                    <a href="https://liff.line.me/2009830086-be7xTyPC" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-black py-3.5 rounded-xl flex justify-center items-center transition mt-auto">
+                        <i data-lucide="shopping-cart" class="w-4 h-4 mr-2"></i> 選購數量
+                    </a>
+                </div>
+            </div>
+
+            <!-- 品項 5：中華米香 -->
+            <!-- ⚠️ 請將圖片檔名改為 img-rice.jpg -->
+            <div class="bg-white rounded-[32px] p-4 shadow-lg border border-gray-100 product-card relative" data-aos="fade-up" data-aos-delay="200">
+                <div class="absolute top-8 left-8 bg-danger text-white px-3 py-1 rounded-full text-xs font-black z-10 shadow-md">追劇零嘴</div>
+                <div class="product-img-wrapper rounded-2xl mb-5 w-full">
+                    <img src="./img-rice.jpg" alt="中華米香" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1536599395935-802c67675549?auto=format&fit=crop&w=600&q=80'">
+                </div>
+                <div class="px-2 pb-2 product-card-content">
+                    <h3 class="text-xl font-black text-gray-900 mb-2">古早味 中華米香</h3>
+                    <p class="text-gray-500 text-sm font-bold leading-relaxed mb-6 product-card-desc">
+                        傳統手作米香花生！酥脆口感香氣四溢，不黏牙也不死甜，大人小孩都愛的經典零嘴，一口接一口。
+                    </p>
+                    <a href="https://liff.line.me/2009830086-be7xTyPC" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-black py-3.5 rounded-xl flex justify-center items-center transition mt-auto">
+                        <i data-lucide="shopping-cart" class="w-4 h-4 mr-2"></i> 選購數量
+                    </a>
+                </div>
+            </div>
+
+            <!-- 品項 6：翠綠櫛瓜 -->
+            <!-- ⚠️ 請將圖片檔名改為 img-zucchini.jpg -->
+            <div class="bg-white rounded-[32px] p-4 shadow-lg border border-gray-100 product-card relative" data-aos="fade-up" data-aos-delay="300">
+                <div class="absolute top-8 left-8 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-black z-10 shadow-md">清甜鮮脆</div>
+                <div class="product-img-wrapper rounded-2xl mb-5 w-full">
+                    <img src="./img-zucchini.jpg" alt="鮮脆櫛瓜" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1601646274472-a164d60237da?auto=format&fit=crop&w=600&q=80'">
+                </div>
+                <div class="px-2 pb-2 product-card-content">
+                    <h3 class="text-xl font-black text-gray-900 mb-2">鮮脆 翠綠櫛瓜</h3>
+                    <p class="text-gray-500 text-sm font-bold leading-relaxed mb-6 product-card-desc">
+                        新鮮手採，外皮翠綠、果肉鮮甜多汁。無論是簡單乾煎、烤箱烘焙或是煮溫沙拉，都是最健康美味的選擇。
+                    </p>
+                    <a href="https://liff.line.me/2009830086-be7xTyPC" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-black py-3.5 rounded-xl flex justify-center items-center transition mt-auto">
+                        <i data-lucide="shopping-cart" class="w-4 h-4 mr-2"></i> 選購數量
+                    </a>
+                </div>
+            </div>
+
+            <!-- 品項 7：特調椒鹽 -->
+            <!-- ⚠️ 請將圖片檔名改為 img-pepper.jpg -->
+            <div class="bg-white rounded-[32px] p-4 shadow-lg border border-gray-100 product-card relative" data-aos="fade-up" data-aos-delay="100">
+                <div class="absolute top-8 left-8 bg-gray-800 text-white px-3 py-1 rounded-full text-xs font-black z-10 shadow-md">入菜新選擇</div>
+                <div class="product-img-wrapper rounded-2xl mb-5 w-full">
+                    <img src="./img-pepper.jpg" alt="特調椒鹽" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=80'">
+                </div>
+                <div class="px-2 pb-2 product-card-content">
+                    <h3 class="text-xl font-black text-gray-900 mb-2">特調 蔥/蒜椒鹽</h3>
+                    <p class="text-gray-500 text-sm font-bold leading-relaxed mb-6 product-card-desc">
+                        150g 大容量包裝！青蔥椒鹽清香、蒜香椒鹽爆香。灑在炸雞、海鮮或是炒菜提味，怎麼搭都神好吃。
+                    </p>
+                    <a href="https://liff.line.me/2009830086-be7xTyPC" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-black py-3.5 rounded-xl flex justify-center items-center transition mt-auto">
+                        <i data-lucide="shopping-cart" class="w-4 h-4 mr-2"></i> 選購數量
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 品項 8：爆漿餐包 (保留作為熱銷品，無自有圖片則自動載入高品質圖庫照) -->
+            <div class="bg-white rounded-[32px] p-4 shadow-lg border border-gray-100 product-card relative" data-aos="fade-up" data-aos-delay="200">
+                <div class="product-img-wrapper rounded-2xl mb-5 w-full">
+                    <!-- 若無圖片，會自動顯示 Unsplash 優質照片 -->
+                    <img src="./img-bread.jpg" alt="爆漿餐包" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1573140247632-f8fd74997d5c?auto=format&fit=crop&w=600&q=80'">
+                </div>
+                <div class="px-2 pb-2 product-card-content">
+                    <h3 class="text-xl font-black text-gray-900 mb-2">手作 爆漿餐包</h3>
+                    <p class="text-gray-500 text-sm font-bold leading-relaxed mb-6 product-card-desc">
+                        氣炸鍋3分鐘，外酥內軟瞬間爆漿！帕瑪森、奶酥、鹹奶油三種口味任選，無防腐劑小孩最愛。
+                    </p>
+                    <a href="https://liff.line.me/2009830086-be7xTyPC" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-black py-3.5 rounded-xl flex justify-center items-center transition mt-auto">
+                        <i data-lucide="shopping-cart" class="w-4 h-4 mr-2"></i> 選購數量
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================
+         3. 階梯優惠與運費說明
+         ========================================== -->
+    <section class="py-16 px-6 bg-white mb-8 border-t border-gray-100">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-black text-center mb-10 text-gray-900">📦 全館運費與揪團優惠</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-light p-8 rounded-3xl border border-gray-200" data-aos="fade-right">
+                    <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 mb-4">
+                        <i data-lucide="truck"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-gray-800 mb-2">低溫與常溫運費</h3>
+                    <p class="text-gray-500 font-bold leading-relaxed text-sm">
+                        本檔期提供黑貓/新竹物流配送。常溫商品運費 $100，低溫商品運費 $160。系統會自動幫您計算最划算的合併寄送方式。
+                    </p>
+                </div>
+
+                <div class="bg-danger-gradient p-8 rounded-3xl text-white shadow-xl transform md:-translate-y-4" data-aos="fade-left">
+                    <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-white mb-4">
+                        <i data-lucide="gift"></i>
+                    </div>
+                    <h3 class="text-xl font-black mb-2">大宗揪團免運門檻</h3>
+                    <p class="text-white/90 font-bold leading-relaxed text-sm mb-4">
+                        找同事朋友一起買最划算！全館商品任選：
+                    </p>
+                    <ul class="space-y-2 font-black text-lg">
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2"></i> 滿 10 件即享免運</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2"></i> 滿 20 件再折 $300</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部常駐懸浮按鈕 -->
+    <div class="fixed bottom-0 left-0 right-0 p-4 bg-white/95 backdrop-blur-md border-t border-gray-200 z-[100] shadow-[0_-10px_40px_rgba(0,0,0,0.08)]">
+        <div class="max-w-4xl mx-auto flex items-center gap-4">
+            <div class="hidden md:block flex-1 pl-4">
+                <p class="text-xs font-black tracking-widest text-gray-400 mb-1">GROUP BUYING SYSTEM</p>
+                <p class="text-sm font-black text-gray-800">2026 最終檔期，售完即關團</p>
+            </div>
+            
+            <a href="https://liff.line.me/2009830086-be7xTyPC" class="flex-1 w-full bg-gradient text-white py-4 px-6 flex items-center justify-center rounded-2xl font-black text-lg shadow-lg hover:opacity-90 active:scale-95 transition-transform duration-200">
+                <i data-lucide="shopping-bag" class="mr-2 w-5 h-5"></i> 進入系統 開始下單
+            </a>
+        </div>
+    </div>
+
+    <!-- 腳本區 -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        lucide.createIcons();
+        AOS.init({ once: true, offset: 30 });
+
+        const targetDate = new Date('2026-12-31T23:59:59').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) return;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("cd-days").innerText = days.toString().padStart(2, '0');
+            document.getElementById("cd-hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("cd-mins").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("cd-secs").innerText = seconds.toString().padStart(2, '0');
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
